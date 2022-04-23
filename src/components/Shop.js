@@ -87,7 +87,7 @@ function Shop() {
                     <Form.Check onClick={() => categorySearchBox(type)}
                                 type= 'checkbox'
                                 id={`default-${type}`}
-                                label={`${type}`}
+                                label={type}
                     />
                 </div>))}
         </Form>

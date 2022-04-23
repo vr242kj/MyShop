@@ -1,5 +1,5 @@
 import {Navbar, Container, Nav} from "react-bootstrap";
-import { Routes, Route, Link } from "react-router-dom";
+import {Routes, Route, Link, Navigate} from "react-router-dom";
 import NotFound from './components/NotFound';
 import Shop from './components/Shop';
 import AboutProduct from './components/AboutProduct';
@@ -22,9 +22,10 @@ function App() {
             </Navbar>
 
             <Routes>
-                <Route path="products" element={<Shop />} />
-                <Route path="products/product/:id" element={<AboutProduct />} />
-                <Route path="*" element={<NotFound />} />
+                <Route path="products" element={<Shop/>}/>
+                <Route path="products/product/:id" element={<AboutProduct/>}/>
+                <Route path="*" element={<NotFound/>}/>
+                <Route path="/" element={<Navigate to="/products"/>}/>
             </Routes>
         </div>
       </div>
