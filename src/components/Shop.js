@@ -28,9 +28,9 @@ function Shop() {
 
     function searchProduct(e){
         let search = e.currentTarget.value.toLowerCase();
-        let tit = products.filter(product => product.title.toLowerCase().includes(search) || product.category.toLowerCase().includes(search));
-        setFilteredProducts(tit);
-        if(!tit.length){
+        let foundProduct = products.filter(product => product.title.toLowerCase().includes(search) || product.category.toLowerCase().includes(search));
+        setFilteredProducts(foundProduct);
+        if(!foundProduct.length){
             setIsProductFound(false);
             return;
         }
@@ -68,9 +68,9 @@ function Shop() {
 
     function categorySearchBox(e) {
         if (categoryForSearch.includes(e)) {
-            let k = categoryForSearch.filter(category => category !== e)
-            setCategoryForSearch(k);
-            setFilteredProducts(products.filter(prod => k.includes(prod.category)));
+            let newCategoryForSearch = categoryForSearch.filter(category => category !== e)
+            setCategoryForSearch(newCategoryForSearch);
+            setFilteredProducts(products.filter(prod => newCategoryForSearch.includes(prod.category)));
             return;
         }
         categoryForSearch.push(e)
