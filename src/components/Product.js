@@ -9,13 +9,13 @@ function Product({product, selectProduct}) {
             <Card.Body>
                 <Link to={'product/' + product.id}>
                     <Card.Title>
-                    <b>Title: </b> {product.title}
+                        <b>Title: </b> {product.title}
                     </Card.Title>
                 </Link>
-                    <Card.Text>
-                        <b>Category: </b> {product.category} <br/>
-                        Price: <b>{product.price}$</b>
-                    </Card.Text>
+                <Card.Text>
+                    <b>Category: </b> {product.category} <br/>
+                    Price: <b>{product.price}$</b>
+                </Card.Text>
                 {product.selected ?
                     <Button variant="danger" onClick={() => selectProduct(product.id, false)}>Remove from
                         Cart</Button> :

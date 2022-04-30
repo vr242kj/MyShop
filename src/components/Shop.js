@@ -21,25 +21,27 @@ function Shop() {
 
     useEffect(() => {
         setCategoryForBoxFilter(products.reduce((acc, prod) => {
-            if(!acc.includes(prod.category)) {acc.push(prod.category)}
+            if (!acc.includes(prod.category)) {
+                acc.push(prod.category)
+            }
             return acc
         }, []))
     }, [products])
 
-    function searchProduct(e){
+    function searchProduct(e) {
         let search = e.currentTarget.value.toLowerCase();
         let foundProduct = products.filter(product => product.title.toLowerCase().includes(search) || product.category.toLowerCase().includes(search));
         setFilteredProducts(foundProduct);
-        if(!foundProduct.length){
+        if (!foundProduct.length) {
             setIsProductFound(false);
             return;
         }
         setIsProductFound(true);
     }
 
-    function selectProduct(id, value){
+    function selectProduct(id, value) {
         setProducts(products.map(product => {
-            if(product.id === id) {
+            if (product.id === id) {
                 return {...product, selected: value, quantity: 1};
             }
             return {...product};
@@ -48,8 +50,8 @@ function Shop() {
 
     function addQuantityOfItem(id, quantity) {
         setProducts(products.map(product => {
-            if(product.id === id) {
-                return {...product,  quantity: quantity + 1};
+            if (product.id === id) {
+                return {...product, quantity: quantity + 1};
             }
             return {...product};
         }))
@@ -81,11 +83,11 @@ function Shop() {
 
     return <>
         <h1>Shop </h1>
-        <Form >
+        <Form>
             {categoryForBoxFilter.map((type) => (
                 <div key={`default-${type}`} className="mb-3">
                     <Form.Check onClick={() => categorySearchBox(type)}
-                                type= 'checkbox'
+                                type='checkbox'
                                 id={`default-${type}`}
                                 label={type}
                     />
