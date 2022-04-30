@@ -3,7 +3,6 @@ import {useNavigate} from 'react-router-dom'
 
 function Login() {
     const nameRef = useRef(null);
-    // const [userLogin, setUserLogin] = useState('')
     const [validationPass, setValidationPass] = useState(true);
     const navigate = useNavigate()
 
@@ -13,14 +12,13 @@ function Login() {
 
     function registerUser(e) {
         if (validationPass) {
-            // setUserLogin(nameRef.current.value);
             localStorage.setItem('login', nameRef.current.value);
             navigate("/products");
         }
         e.preventDefault();
     }
 
-    return <div>
+    return <>
         <h2>Welcome</h2>
         <form id="registration" onSubmit={registerUser}>
             <h3>Enter your username to sign in</h3>
@@ -33,7 +31,7 @@ function Login() {
                 NEXT
             </button>
         </form>
-    </div>;
+    </>;
 }
 
 export default Login;
