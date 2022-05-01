@@ -43,14 +43,14 @@ function Shop() {
         setIsProductFound(true);
     }
 
-    function selectProduct(id, value) {
-        setProductsState(products.map(product => {
-            if (product.id === id) {
-                return {...product, selected: value, quantity: 1};
-            }
-            return {...product};
-        }))
-    }
+    // function selectProduct(id, value) {
+    //     setProductsState(products.map(product => {
+    //         if (product.id === id) {
+    //             return {...product, selected: value, quantity: 1};
+    //         }
+    //         return {...product};
+    //     }))
+    // }
 
     function addQuantityOfItem(id, quantity) {
         setProductsState(products.map(product => {
@@ -98,14 +98,14 @@ function Shop() {
                 </div>))}
         </Form>
         <SearchProduct searchProduct={searchProduct}/>
-        <Cart products={products.filter(el => el.selected)} selectProduct={selectProduct}
+        <Cart //selectProduct={selectProduct}
               addQuantityOfItem={addQuantityOfItem} removeQuantityOfItem={removeQuantityOfItem}
         />
         <Container>
             <Row>
                 {isProductFound ? (filteredProducts.length ? filteredProducts : products).map(product =>
                     <Product
-                        selectProduct={selectProduct}
+                        //selectProduct={selectProduct}
                         key={product.id}
                         product={product}/>) : <span>We do not have this product</span>
                 }
