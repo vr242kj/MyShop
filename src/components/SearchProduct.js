@@ -1,14 +1,18 @@
-import React from "react";
-import {Form} from "react-bootstrap";
+import React from 'react'
+import {Field, reduxForm} from 'redux-form'
+import {searchProduct} from '../store/shopSlice'
+import {useDispatch} from "react-redux";
 
-function SearchProduct({searchProduct}) {
-    return <Form.Control
-        className={'mb-3'}
-        placeholder={'Search'}
-        type="text"
-        onKeyUp={searchProduct}
-        aria-describedby="passwordHelpBlock"
-    />
+function SearchProducts() {
+    const dispatch = useDispatch()
+
+    function onSubmit(e) {
+        dispatch(searchProduct(e.target.value))
+    }
+
+    return <Field name="search" component="input" type="text" onKeyUp={onSubmit}/>
 }
 
-export default SearchProduct;
+export default reduxForm({
+    form: 'my-from'
+})(SearchProducts)
