@@ -1,8 +1,8 @@
 import React from "react";
 import {Button, Card, Col} from "react-bootstrap";
 import {Link} from "react-router-dom";
-import { useDispatch } from 'react-redux'
-import { selectProduct } from '../store/shopSlice'
+import {useDispatch} from 'react-redux'
+import {selectProduct} from '../store/shopSlice'
 
 function Product({product}) {
     const dispatch = useDispatch()
@@ -13,7 +13,7 @@ function Product({product}) {
             <Card.Body>
                 <Link to={'product/' + product.id}>
                     <Card.Title>
-                        <b>Title: </b> {product.title}
+                        {product.title}
                     </Card.Title>
                 </Link>
                 <Card.Text>

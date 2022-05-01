@@ -27,13 +27,14 @@ function App() {
                 </Navbar>
                 {(pathname !== "/login" && localStorage.getItem("login")) && <Header/>}
                 <Routes>
-                    <Route path="/" element={<PrivateRoute />}>
-                        <Route path="/products" element={<Shop />}/>
+                    <Route path="/" element={<PrivateRoute/>}>
+                        <Route path="/products" element={<Shop/>}/>
+                        <Route path="products/product/:id" element={<AboutProduct/>}/>
                         <Route path="/" element={<Navigate to="/products"/>}/>
                     </Route>
-                    <Route path="login" element={<Login />}/>
-                    <Route path="products/product/:id" element={<AboutProduct />}/>
-                    <Route path="/*" element={<NotFound />}/>
+                    <Route path="login" element={<Login/>}/>
+                    {!localStorage.getItem("login") && <Route path="/*" element={<Navigate to="/login"/>}/>}
+                    <Route path="/*" element={<NotFound/>}/>
                 </Routes>
             </div>
         </div>
