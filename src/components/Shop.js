@@ -7,14 +7,13 @@ import SearchProduct from "./SearchProduct";
 import Cart from "./Cart";
 
 import {useSelector, useDispatch} from 'react-redux'
-import {setProductsState, setCategoryForBoxFilter, categorySearchBox} from '../store/shopSlice'
+import {setProductsState, setAllCategoryForFilter, categorySearch} from '../store/shopSlice'
 
 function Shop() {
     const products = useSelector(state => state.shop.products);
     const categoryForBoxFilter = useSelector(state => state.shop.categoryForBoxFilter);
     const filteredProducts = useSelector(state => state.shop.filteredProducts);
     const isProductFound = useSelector(state => state.shop.isProductFound);
-
     const dispatch = useDispatch()
 
     useEffect(() => {
@@ -24,7 +23,7 @@ function Shop() {
     }, [])
 
     useEffect(() => {
-        dispatch(setCategoryForBoxFilter());
+        dispatch(setAllCategoryForFilter());
     }, [products])
 
     return <>
@@ -32,7 +31,7 @@ function Shop() {
         <Form>
             {categoryForBoxFilter.map((type) => (
                 <div key={`default-${type}`} className="mb-3">
-                    <Form.Check onClick={() => dispatch(categorySearchBox(type))}
+                    <Form.Check onClick={() => dispatch(categorySearch(type))}
                                 type='checkbox'
                                 id={`default-${type}`}
                                 label={type}

@@ -49,7 +49,7 @@ export const shopSlice = createSlice({
                 return {...product};
             })
         },
-        setCategoryForBoxFilter: state => {
+        setAllCategoryForFilter: state => {
             state.categoryForBoxFilter = state.products.reduce((accumulator, product) => {
                 if (!accumulator.includes(product.category)) {
                     accumulator.push(product.category)
@@ -57,7 +57,7 @@ export const shopSlice = createSlice({
                 return accumulator
             }, [])
         },
-        categorySearchBox: (state, element) => {
+        categorySearch: (state, element) => {
             if (state.categoryForSearch.includes(element.payload)) {
                 state.categoryForSearch = state.categoryForSearch.filter(category => category !== element.payload)
                 state.filteredProducts = state.products.filter(prod => state.categoryForSearch.includes(prod.category))
@@ -81,7 +81,7 @@ export const shopSlice = createSlice({
 
 export const {
     setProductsState, getItemByID, selectProduct, addQuantityOfItem,
-    removeQuantityOfItem, setCategoryForBoxFilter, categorySearchBox, searchProduct
+    removeQuantityOfItem, setAllCategoryForFilter, categorySearch, searchProduct
 } = shopSlice.actions
 
 export default shopSlice.reducer
