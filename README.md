@@ -2,7 +2,7 @@
 Application written with the React framework and library Redux. Implemented the single page application principle by using react-router.
 Application home page:
 ![image](https://user-images.githubusercontent.com/88940299/172652244-38ae143d-0c87-4e7b-9582-aff41ff8d7d7.png)
-It is possible to add and remove items to the shopping basket and adjust their quantity. The order amount is also automatically calculated
+It is possible to add and remove items to the shopping basket and adjust their quantity. The order amount is also automatically calculated.
 ![image](https://user-images.githubusercontent.com/88940299/172653137-e6e88b8c-5ad1-456c-bb9c-83c59ada32d2.png)
 There is a search by product name or manufacturer. 
 ![image](https://user-images.githubusercontent.com/88940299/172653723-bdd7679c-aa23-4566-9db9-9b42551de99e.png)
